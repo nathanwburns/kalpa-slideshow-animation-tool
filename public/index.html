@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kalpa Slideshow Animation Tool</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/app.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="hero">
+      <div class="hero__copy">
+        <span class="pill">Kalpa Slideshow Animation Tool</span>
+        <h1>Build branded slide motion decks that can be edited slide by slide.</h1>
+        <p>
+          Generate Kalpa-styled slides from prompts, URLs, PDFs, and desktop files. Download each slide as GIF or MP4,
+          download the entire deck, or re-upload the editable package later without keeping long-term server storage.
+        </p>
+      </div>
+      <div class="hero__meta" id="retentionBanner">
+        <strong>48-hour retention</strong>
+        <span>Rendered assets auto-delete after 48 hours unless downloaded.</span>
+      </div>
+    </header>
+
+    <main class="main-grid">
+      <section class="panel panel--form">
+        <div class="panel__head">
+          <div>
+            <div class="kicker">Input</div>
+            <h2>Create or rebuild a deck</h2>
+          </div>
+          <p>Desktop-first 16:9 workflow for Google Slides-ready animated slide assets.</p>
+        </div>
+
+        <form id="projectForm" class="form">
+          <label class="field">
+            <span>Project title</span>
+            <input type="text" name="projectTitle" placeholder="Kalpa ERP explainer deck" />
+          </label>
+
+          <label class="field">
+            <span>Prompt</span>
+            <textarea
+              name="prompt"
+              rows="7"
+              placeholder="Describe the slideshow, the audience, and the tone you want. Mention if any uploaded slides should be remade."
+            ></textarea>
+          </label>
+
+          <div class="field-grid">
+            <label class="field">
+              <span>Reference URL</span>
+              <input type="url" name="sourceUrl" placeholder="https://www.kalpainc.com/" />
+            </label>
+            <label class="field">
+              <span>Desired length (minutes)</span>
+              <input type="number" name="desiredMinutes" min="0" max="20" step="0.5" placeholder="5" />
+            </label>
+            <label class="field">
+              <span>Target slide count</span>
+              <input type="number" name="targetSlideCount" min="1" max="12" step="1" placeholder="12" />
+            </label>
+          </div>
+
+          <label class="field">
+            <span>Upload references or existing slide assets</span>
+            <input id="fileInput" type="file" multiple />
+            <small>
+              Supports desktop files, PDFs, images, rendered slide assets, and editable package re-upload.
+            </small>
+          </label>
+
+          <div id="selectedFiles" class="selected-files empty">No files selected yet.</div>
+
+          <div class="actions">
+            <button class="btn btn--primary" type="submit">Generate MVP deck</button>
+            <a class="btn btn--ghost" href="/template-library/index.html" target="_blank" rel="noreferrer">View template library</a>
+          </div>
+        </form>
+      </section>
+
+      <aside class="panel panel--sidebar">
+        <div class="panel__head">
+          <div>
+            <div class="kicker">System</div>
+            <h2>MVP defaults</h2>
+          </div>
+        </div>
+        <ul class="meta-list" id="bootstrapMeta">
+          <li>Loading template library...</li>
+        </ul>
+        <div class="note">
+          <strong>Re-editing model</strong>
+          <p>
+            Exact edits come from re-uploading the editable project package. Re-uploaded GIFs, MP4s, or images rebuild
+            slides approximately using the Kalpa template system.
+          </p>
+        </div>
+      </aside>
+    </main>
+
+    <section id="projectSection" class="panel panel--project hidden">
+      <div class="panel__head">
+        <div>
+          <div class="kicker">Project</div>
+          <h2 id="projectTitle">Current deck</h2>
+        </div>
+        <p id="projectMeta">Waiting for the first generation.</p>
+      </div>
+
+      <div class="deck-actions" id="deckActions">
+        <button class="btn btn--secondary" data-deck-format="gif">Download entire deck as GIF</button>
+        <button class="btn btn--secondary" data-deck-format="mp4">Download entire deck as MP4</button>
+        <button class="btn btn--ghost" data-deck-format="package">Download editable package</button>
+      </div>
+
+      <div id="slideGrid" class="slide-grid"></div>
+    </section>
+  </div>
+
+  <template id="slideCardTemplate">
+    <article class="slide-card">
+      <div class="slide-card__preview">
+        <img alt="" />
+      </div>
+      <div class="slide-card__body">
+        <div class="slide-card__top">
+          <div>
+            <span class="slide-card__index"></span>
+            <h3 class="slide-card__title"></h3>
+          </div>
+          <span class="slide-card__template"></span>
+        </div>
+        <p class="slide-card__subtitle"></p>
+        <label class="field">
+          <span>Edit this slide</span>
+          <textarea rows="4" class="slide-edit-prompt" placeholder="Change the angle, replace the headline, simplify the motion, remake from uploaded asset, etc."></textarea>
+        </label>
+        <div class="slide-card__actions">
+          <button class="btn btn--primary slide-regenerate" type="button">Regenerate slide</button>
+          <a class="btn btn--secondary slide-download-gif" href="#">Download GIF</a>
+          <a class="btn btn--secondary slide-download-mp4" href="#">Download MP4</a>
+          <a class="btn btn--ghost slide-download-png" href="#">PNG preview</a>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>
