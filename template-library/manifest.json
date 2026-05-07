@@ -1,0 +1,186 @@
+{
+  "version": 1,
+  "libraryId": "kalpa-starter-library",
+  "brandTheme": {
+    "name": "kalpa-default",
+    "sourceBrandBook": "AI Video + Images/Replit Design Book/Kalpa Brand Book",
+    "fonts": ["Inter", "IBM Plex Mono"],
+    "colors": {
+      "brandBlue": "#007ABE",
+      "brandBlueDark": "#001A29",
+      "themeOrange": "#ED854D",
+      "signalOrange": "#FF8C00",
+      "supportBlue": "#7FBCDE",
+      "paper": "#F4F4F4"
+    }
+  },
+  "designSignals": [
+    "advisor-grade trust",
+    "blue-led enterprise palette",
+    "warm orange CTA emphasis",
+    "diagonal geometry and angle motifs",
+    "white or pale business surfaces over dark blue framing",
+    "Inter everywhere, weight-driven hierarchy"
+  ],
+  "animations": [
+    {
+      "id": "hero-sweep",
+      "cpuProfile": "light",
+      "description": "Headline fade-in with diagonal accent sweep and slow background drift.",
+      "bestFor": ["hero", "closing", "big promise"]
+    },
+    {
+      "id": "fade-rise",
+      "cpuProfile": "light",
+      "description": "Simple fade-up reveal for text and cards.",
+      "bestFor": ["summary", "body-copy", "proof"]
+    },
+    {
+      "id": "card-rise-stagger",
+      "cpuProfile": "light",
+      "description": "Cards enter with slight delay and settle with low-motion drift.",
+      "bestFor": ["grids", "challenges", "services", "industries"]
+    },
+    {
+      "id": "number-pulse",
+      "cpuProfile": "light",
+      "description": "Stat counts or pulses into place with subtle emphasis halo.",
+      "bestFor": ["numbers", "results", "proof points"]
+    },
+    {
+      "id": "timeline-draw",
+      "cpuProfile": "medium",
+      "description": "Roadmap line draws across stages while cards reveal sequentially.",
+      "bestFor": ["process", "steps", "delivery methodology"]
+    },
+    {
+      "id": "subtle-loop",
+      "cpuProfile": "light",
+      "description": "Continuous, low-amplitude background or image motion suitable for GIF export.",
+      "bestFor": ["all-slide-looping", "ambient motion"]
+    }
+  ],
+  "templates": [
+    {
+      "id": "kalpa-hero-opener",
+      "name": "Hero Opener",
+      "purpose": "Open a deck with a bold business promise and immediate advisor positioning.",
+      "inspiredBy": ["ERP Done Right by Trusted Advisors Who Know Your Business", "Book Your Strategy Call"],
+      "layout": "headline-left / brand-panel-right",
+      "defaultAnimation": ["hero-sweep", "subtle-loop"],
+      "preferredDurationSeconds": [8, 14],
+      "contentSlots": [
+        "eyebrow",
+        "headline",
+        "subheadline",
+        "supportingBullets",
+        "ctaText",
+        "backgroundImage"
+      ],
+      "notes": "Use dark blue framing, soft white content panel, and orange CTA emphasis."
+    },
+    {
+      "id": "kalpa-challenge-stack",
+      "name": "Challenge Stack",
+      "purpose": "Turn buyer pain points into a structured problem slide.",
+      "inspiredBy": ["Which Challenge Sounds Familiar?"],
+      "layout": "section-title + stacked challenge cards",
+      "defaultAnimation": ["card-rise-stagger"],
+      "preferredDurationSeconds": [8, 12],
+      "contentSlots": [
+        "sectionKicker",
+        "sectionTitle",
+        "introText",
+        "challengeCards"
+      ],
+      "notes": "Best when the prompt lists problems, bottlenecks, or operational frustrations."
+    },
+    {
+      "id": "kalpa-proof-stats",
+      "name": "Proof Stats",
+      "purpose": "Show quantified experience, revenue, implementation count, or outcomes.",
+      "inspiredBy": ["Implementations", "Revenue", "years of combined operational experience"],
+      "layout": "stat band with supporting proof text",
+      "defaultAnimation": ["number-pulse", "fade-rise"],
+      "preferredDurationSeconds": [6, 10],
+      "contentSlots": [
+        "sectionKicker",
+        "headline",
+        "statItems",
+        "footnote"
+      ],
+      "notes": "Use big numbers with one-line labels and minimal extra copy."
+    },
+    {
+      "id": "kalpa-process-roadmap",
+      "name": "Process Roadmap",
+      "purpose": "Explain delivery stages, implementation approach, or project phases.",
+      "inspiredBy": ["How We Make Sure Your ERP Actually Works"],
+      "layout": "horizontal step roadmap",
+      "defaultAnimation": ["timeline-draw"],
+      "preferredDurationSeconds": [10, 16],
+      "contentSlots": [
+        "sectionKicker",
+        "sectionTitle",
+        "stepItems",
+        "closingReassurance"
+      ],
+      "notes": "Keep to 3-5 steps in MVP. Longer sequences should split into multiple slides."
+    },
+    {
+      "id": "kalpa-industry-grid",
+      "name": "Industry Grid",
+      "purpose": "Show sectors served or solution categories in a clean matrix.",
+      "inspiredBy": ["Construction", "Manufacturing", "Wholesale Distribution", "Retail"],
+      "layout": "2x2 or 3x2 card grid",
+      "defaultAnimation": ["card-rise-stagger", "subtle-loop"],
+      "preferredDurationSeconds": [8, 12],
+      "contentSlots": [
+        "sectionKicker",
+        "sectionTitle",
+        "industryCards"
+      ],
+      "notes": "Best for verticals, service categories, or product families."
+    },
+    {
+      "id": "kalpa-offer-comparison",
+      "name": "Offer Comparison",
+      "purpose": "Contrast current-state pain with Kalpa's simpler delivery model or compare options.",
+      "inspiredBy": ["Most consultants overcomplicate ERP. We do it differently."],
+      "layout": "two-column compare / before-after",
+      "defaultAnimation": ["fade-rise"],
+      "preferredDurationSeconds": [8, 12],
+      "contentSlots": [
+        "sectionTitle",
+        "leftColumnTitle",
+        "leftColumnPoints",
+        "rightColumnTitle",
+        "rightColumnPoints"
+      ],
+      "notes": "Use orange sparingly to highlight the better path, not the whole slide."
+    },
+    {
+      "id": "kalpa-cta-close",
+      "name": "CTA Close",
+      "purpose": "End the deck with a direct next step and clear low-pressure conversion ask.",
+      "inspiredBy": ["Ready to see what's possible?", "Free 30-minute call. No pressure. Leave with a clear roadmap."],
+      "layout": "centered close with CTA band",
+      "defaultAnimation": ["hero-sweep", "subtle-loop"],
+      "preferredDurationSeconds": [8, 14],
+      "contentSlots": [
+        "headline",
+        "subheadline",
+        "ctaText",
+        "ctaSubtext",
+        "contactLine"
+      ],
+      "notes": "Should feel decisive and helpful, not flashy."
+    }
+  ],
+  "generationRules": {
+    "defaultAspectRatio": "16:9",
+    "recommendedTemplateCountForMvpDeck": [5, 12],
+    "fallbackAnimation": "fade-rise",
+    "fallbackTemplate": "kalpa-challenge-stack"
+  }
+}
