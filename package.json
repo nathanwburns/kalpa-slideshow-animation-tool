@@ -1,0 +1,14 @@
+{
+  "name": "kalpa-slideshow-animation-tool-project",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Kalpa slideshow animation MVP for generating branded slide GIFs and MP4s.",
+  "scripts": {
+    "build": "rm -rf vendor_py && python3 -m pip install --target ./vendor_py -r requirements-render.txt",
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
