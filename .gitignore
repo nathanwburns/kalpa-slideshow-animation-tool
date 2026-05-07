@@ -1,0 +1,15 @@
+node_modules/
+.DS_Store
+.env
+.env.local
+.env.production
+dist/
+build/
+.railway/
+data/
+vendor_py/
+__pycache__/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
